@@ -27,16 +27,16 @@
 
               <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to 'HOME', users_path, class: 'fas fa-home nav-link text-light p-3' %>
+                <%= link_to 'HOME', user_path(current_user.id), class: 'fas fa-home nav-link text-light p-3' %>
               </li>
               <li class="nav-item">
-                <%= link_to 'Users', users_path, class: 'fas fa-users nav-link text-light p-1' %>
+                <%= link_to 'Users', users_path, class: 'fas fa-users nav-link text-light p-3' %>
               </li>
               <li class="nv-item">
-                <%= link_to 'Books', books_path, class: 'fas fa-book-oren nav-link text-light p-1' %>
+                <%= link_to 'Books', books_path, class: 'fas fa-book-open nav-link text-light p-3' %>
               </li>
               <li class="nav-item">
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light p-1' %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light p-3' %>
               </li>
 
               <% else %>

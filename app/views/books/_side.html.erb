@@ -1,9 +1,11 @@
 
 
-<h1>new book</h1>
+<h2 class="mt-3">new book</h2>
 <%= form_with model: create, local:true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
+  <div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control"  %>
+  </div>
   <h4>Opinion</h4>
   <%= f.text_area :opinion %>
   <div><%= f.submit 'Create Book' %></div>
