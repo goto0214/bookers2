@@ -1,3 +1,5 @@
+
+
 <h1>new book</h1>
 <%= form_with model: create, local:true do |f| %>
   <h4>Title</h4>
@@ -5,4 +7,5 @@
   <h4>Opinion</h4>
   <%= f.text_area :opinion %>
   <div><%= f.submit 'Create Book' %></div>
+
 <% end %>

@@ -8,20 +8,22 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @books = Book.page(params[:page]).reverse_order
     @create = Book.new
   end
 
   def show
     @create = Book.new
     @book = Book.find(params[:id])
-
   end
 
   def edit
   end
 
   def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path
   end
 
 
