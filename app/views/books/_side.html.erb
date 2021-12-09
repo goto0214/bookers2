@@ -6,8 +6,12 @@
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control"  %>
   </div>
-  <h4>Opinion</h4>
-  <%= f.text_area :opinion %>
-  <div><%= f.submit 'Create Book' %></div>
+  <div class="form-group">
+    <%= f.label :opinion %>
+    <%= f.text_area :opinion, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Create Book', class: "btn btn-success" %>
+  </div>
 
 <% end %>
