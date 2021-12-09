@@ -60,7 +60,9 @@
       </nav>
     </header>
     <main class="mb-auto">
-      <%= flash[:notice] %>
+      <div class="text-success">
+        <%= flash[:notice] %>
+      </div>
       <%= yield %>
     </main>
 
