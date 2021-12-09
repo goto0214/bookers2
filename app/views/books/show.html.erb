@@ -19,7 +19,7 @@
                     <%= link_to @book.title, book_path(@book.id) %>
                   </td>
                   <td>
-                    <%= @book.opinion %>
+                    <%= @book.body %>
                   </td>
                   <% if @book.user == current_user %>
                     <td>
