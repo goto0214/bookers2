@@ -30,6 +30,9 @@
                   <td>
                     <%= book.body %>
                   </td>
+                  <td>
+                    コメント件数：<%= book.book_comments.count %>
+                  </td>
                 </tr>
               <% end %>
               <%= paginate @books %>
