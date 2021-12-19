@@ -29,9 +29,23 @@
                   <td>
                     <%= book.body %>
                   </td>
+                  <td>
+                    <% if book.liked_by?(current_user) %>
+                      <%= link_to book_like_path(book), method: :delete do %>
+                        👍<%= book.likes.count %>グッド
+                      <% end %>
+                    <% else %>
+                      <%= link_to book_like_path(book), method: :post do %>
+                        👍<%= book.likes.count %>グッド
+                      <% end %>
+                    <% end%>
+                  </td>
+                  <td>
+                    コメント：<%= book.book_comments.count %>件
+                  </td>
                 </tr>
+                <% paginate @books %>
               <% end %>
-              <% paginate @books %>
             </tbody>
           </table>
         </div>

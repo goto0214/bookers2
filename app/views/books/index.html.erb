@@ -13,7 +13,7 @@
                 <th></th>
                 <th>Title</th>
                 <th>Opinion</th>
-                <th colspan="3"></th>
+                <th colspan="4"></th>
               </tr>
             </thead>
 
@@ -31,13 +31,24 @@
                     <%= book.body %>
                   </td>
                   <td>
+                    <% if book.liked_by?(current_user) %>
+                      <%= link_to book_like_path(book), method: :delete do %>
+                        👍<%= book.likes.count %>グッド
+                      <% end %>
+                    <% else %>
+                      <%= link_to book_like_path(book), method: :post do %>
+                        👍<%= book.likes.count %>グッド
+                      <% end %>
+                    <% end %>
+                  </td>
+                  <td>
                     コメント件数：<%= book.book_comments.count %>
                   </td>
                 </tr>
               <% end %>
-              <%= paginate @books %>
             </tbody>
           </table>
+           <%= paginate @books %>
         </div>
     </div>
 </div>

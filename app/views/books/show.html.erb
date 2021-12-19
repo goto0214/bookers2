@@ -12,7 +12,7 @@
                 <tr>
                   <td>
                     <%= link_to user_path(@user.id) do %>
-                    <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "40x40" %>
+                    <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "70x70" %>
                     <div><%= @user.name %></div>
                     <% end %>
                   <td>
@@ -20,6 +20,20 @@
                   </td>
                   <td>
                     <%= @book.body %>
+                    <td>
+                      <% if @book.liked_by?(current_user) %>
+                        <%= link_to book_like_path(@book), method: :delete do %>
+                          👍<%= @book.likes.count %>グッド
+                        <% end %>
+                      <% else %>
+                        <%= link_to book_like_path(@book), method: :post do %>
+                          👍<%= @book.likes.count %>グッド
+                        <% end %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= @book.book_comments.count %>コメント
+                    </td>
                   </td>
                   <% if @book.user == current_user %>
                     <td>
